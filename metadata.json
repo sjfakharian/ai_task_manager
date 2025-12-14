@@ -1,0 +1,5 @@
+{
+  "name": "AI Task Manager",
+  "description": "An intelligent task management dashboard featuring dynamic scheduling, energy level analysis, and health recommendations.",
+  "requestFramePermissions": []
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Task Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://apis.google.com/js/api.js" async defer></script>
+    <script>
+      // Enhanced Error Logging
+      window.onerror = function(msg, url, lineNo, columnNo, error) {
+        const root = document.getElementById('root');
+        // If content is still loading spinner, replace it with error
+        if(root.innerText.includes('Loading')) {
+             root.innerHTML = `
+              <div style="color: #991B1B; background: #FEF2F2; padding: 20px; border: 1px solid #EF4444; border-radius: 8px; margin: 20px; font-family: sans-serif;">
+                <h2 style="font-weight: bold; margin-bottom: 10px;">Startup Error</h2>
+                <p>${msg}</p>
+                <p style="font-size: 12px; color: #666; margin-top: 10px;">${url}:${lineNo}</p>
+              </div>
+            `;
+        }
+        console.error('Window Error:', error);
+        return false;
+      };
+
+      // Polyfill process.env
+      window.process = window.process || { env: { API_KEY: '' } };
+      
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#4F46E5',
+              secondary: '#64748B',
+              success: '#10B981',
+              warning: '#F59E0B',
+              danger: '#EF4444',
+            }
+          }
+        }
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.2.0",
+    "react/": "https://esm.sh/react@18.2.0/",
+    "react-dom": "https://esm.sh/react-dom@18.2.0",
+    "react-dom/": "https://esm.sh/react-dom@18.2.0/",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "@google/genai": "https://esm.sh/@google/genai@0.1.1"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-gray-50 text-slate-900 font-sans antialiased">
+    <div id="root" class="flex items-center justify-center h-screen text-gray-500">
+      <div class="text-center">
+        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mx-auto mb-4"></div>
+        <p>Loading Task Manager...</p>
+      </div>
+    </div>
+    <script type="module" src="./index.tsx"></script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
