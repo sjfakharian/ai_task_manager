@@ -1,0 +1,41 @@
+# Configuration file for Smart Task Manager
+
+# Working hours
+work_start_hour: 9
+work_end_hour: 17
+
+# Energy profile (customize based on your daily rhythm)
+# Values: low (1), medium (2), high (3)
+energy_profile:
+  6: low
+  7: medium
+  8: high
+  9: high
+  10: high
+  11: medium
+  12: medium
+  13: low      # Post-lunch dip
+  14: low
+  15: medium
+  16: high
+  17: medium
+  18: medium
+  19: low
+  20: low
+
+# Default task settings
+default_task_duration: 30  # minutes
+default_priority: medium   # low, medium, high, urgent
+
+# Google Calendar sync
+google_calendar_enabled: false
+calendar_id: primary
+
+# AI recommendations
+ai_enabled: true
+learning_enabled: true  # Learn from completed tasks
+
+# Scheduling preferences
+scheduling_buffer: 15  # minutes between tasks
+prefer_energy_match: true
+prioritize_deadlines: true
